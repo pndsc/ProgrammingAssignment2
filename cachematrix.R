@@ -6,7 +6,7 @@ makeCacheMatrix <- function(m = matrix()) {
         im <- NULL
         set <- function(y) {
                 m <- y
-                im <- NULL
+                im <<- NULL
         }
 
         get <- function() m
@@ -14,7 +14,7 @@ makeCacheMatrix <- function(m = matrix()) {
 		## Lazy implementation. Will only create inverse when needed
         getinverse <- function() {
                 if(is.null(im)) {
-                        im <- solve(m)
+                        im <<- solve(m)
                 }
 
                 im
